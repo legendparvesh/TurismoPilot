@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline@0.7.0"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        /* Style for the legend container at the top */
+        .legend-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Style for legend items */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .legend-item-label {
+            margin-left: 5px;
+        }
+
+        /* Style for hollow circles */
+        .hollow-circle {
+            width: 12px;
+            height: 12px;
+            outline: 2px solid white;
+            background-color: brown;
+            outline-offset: 5px;
+            /* Outline style for the circle */
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .li1 >  .hollow-circle{
+  background-color: red;
+}
+.li2 >  .hollow-circle{
+  background-color: green;
+}
+.li3 >  .hollow-circle{
+  background-color: blue;
+}
+    </style>
+</head>
+
+<body>
+    <div class="legend-container">
+        <div class="legend-item li1" id="legendItem1">
+            <div class="hollow-circle"></div>
+            <span class="legend-item-label">Dataset 1</span>
+        </div>
+        <div class="legend-item li2" id="legendItem2">
+            <div class="hollow-circle"></div>
+            <span class="legend-item-label">Dataset 2</span>
+        </div>
+        <div class="legend-item li3" id="legendItem3">
+            <div class="hollow-circle"></div>
+            <span class="legend-item-label">Dataset 3</span>
+        </div>
+    </div>
+    <canvas id="myChart" style="width: 100vw; height: 100vh;"></canvas>
+
+    <script>
+        const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+        // Define your dataset values here
+        const dataset1 = [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 7830, 2478];
+        const dataset2 = [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000];
+        const dataset3 = [300, 700, 2000, 5000, 6000, 4000, 2000, 1000, 200, 100];
+
+        // Create a variable to track the active (clicked) legend items
+        const activeLegendItems = [true, true, true];
+
+        const chart = new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    data: dataset1,
+                    borderColor: "red",
+                    pointRadius: 0,
+                    fill: 'start',
+                    backgroundColor: "rgba(255, 0, 0, 0.1)",
+                    tension: 0.4,
+                    label: 'Custom Label 1',
+                    hidden: !activeLegendItems[0],
+                }, {
+                    data: dataset2,
+                    borderColor: "green",
+                    pointRadius: 0,
+                    fill: 'start',
+                    backgroundColor: "rgba(0, 255, 0, 0.1)",
+                    tension: 0.4,
+                    label: 'Custom Label 2',
+                    hidden: !activeLegendItems[1],
+                }, {
+                    data: dataset3,
+                    borderColor: "blue",
+                    pointRadius: 0,
+                    fill: 'start',
+                    backgroundColor: "rgba(0, 0, 255, 0.1)",
+                    tension: 0.4,
+                    label: 'Custom Label 3',
+                    hidden: !activeLegendItems[2],
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 1500,
+                    easing: 'easeInOutQuart',
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    datalabels: {
+                        display: false,
+                    },
+                    trendline: {
+                        borderColor: 'rgba(255,255,255,0.2)',
+                        borderWidth: 4,
+                        borderDash: [5, 5],
+                        backgroundColor: 'transparent',
+                        enableBackwardForecast: true,
+                        enableOnwardsForecast: true,
+                        showOverlay: true,
+                    }
+                }
+            }
+        });
+
+        // Toggle legend item and dataset visibility on click
+        document.getElementById('legendItem1').addEventListener('click', () => {
+            activeLegendItems[0] = !activeLegendItems[0];
+            chart.data.datasets[0].hidden = !activeLegendItems[0];
+            chart.data.datasets[0].backgroundColor = activeLegendItems[0] ? "rgba(255, 0, 0, 0.2)" : "none";
+            document.getElementById('legendItem1').querySelector('.hollow-circle').style.backgroundColor = activeLegendItems[0] ? "red" : "black";
+            chart.update();
+        });
+
+        document.getElementById('legendItem2').addEventListener('click', () => {
+            activeLegendItems[1] = !activeLegendItems[1];
+            chart.data.datasets[1].hidden = !activeLegendItems[1];
+            chart.data.datasets[1].backgroundColor = activeLegendItems[1] ? "rgba(0, 255, 0, 0.2)" : "none";
+            document.getElementById('legendItem2').querySelector('.hollow-circle').style.backgroundColor = activeLegendItems[1] ? "green" : "black";
+            chart.update();
+        });
+
+        document.getElementById('legendItem3').addEventListener('click', () => {
+            activeLegendItems[2] = !activeLegendItems[2];
+            chart.data.datasets[2].hidden = !activeLegendItems[2];
+            chart.data.datasets[2].backgroundColor = activeLegendItems[2] ? "rgba(0, 0, 255, 0.2)" : "none";
+            document.getElementById('legendItem3').querySelector('.hollow-circle').style.backgroundColor = activeLegendItems[2] ? "blue" : "black";
+            chart.update();
+        });
+    </script>
+</body>
+</html>

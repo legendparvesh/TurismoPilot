@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Tracking</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA01XCwGK7e8pSLDSTOWYQUIK7hEgNL1hc&callback=initializeMap" async defer></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"></script>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+      
+        // Initialize Firebase with your configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyCxXazobQtO9DY106u5_J07tq9lnZq4hjg",
+  authDomain: "web-auth-b6801.firebaseapp.com",
+  databaseURL: "https://web-auth-b6801-default-rtdb.firebaseio.com",
+  projectId: "web-auth-b6801",
+  storageBucket: "web-auth-b6801.appspot.com",
+  messagingSenderId: "24475082151",
+  appId: "1:24475082151:web:2fa02b8f91a56d86de6a82",
+  measurementId: "G-TWSN2HDR5C"
+};
+const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+        function initializeMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 127, lng: -122 }, // Initial map center
+                zoom: 10, // Initial zoom level
+            });
+
+            const vehicleMarkers = {};
+
+            // Firebase reference to your vehicle data
+            const vehiclesRef = firebase.database().ref('vehicles');
+
+            vehiclesRef.on('child_changed', (snapshot) => {
+                const vehicleId = snapshot.key;
+                const vehicleData = snapshot.val();
+
+                if (vehicleMarkers.hasOwnProperty(vehicleId)) {
+                    vehicleMarkers[vehicleId].setPosition({
+                        lat: vehicleData.latitude,
+                        lng: vehicleData.longitude,
+                    });
+                } else {
+                    const marker = new google.maps.Marker({
+                        position: { lat: vehicleData.latitude, lng: vehicleData.longitude },
+                        map: map,
+                        title: `Vehicle ${vehicleId}`,
+                    });
+
+                    vehicleMarkers[vehicleId] = marker;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Management</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="left">
+        <img class="logo" src="Assets/Turismo_turings-removebg-preview 1.png" alt="">
+        <br><br>
+        <div class="dashboard">
+           <div class="controlpanel">
+                <img src="Assets/Control Panel.png" alt="">
+                <h4>Dashboard</h4>
+            </div>
+            <div class="controlpanel transfer">
+                <img src="Assets/Data Transfer.png" alt="">
+                <h4>Transfer</h4>
+            </div>
+            <div class="controlpanel analytics">
+                <img src="Assets/Web Analytics.png" alt="">
+                <h4>Analytics</h4>
+            </div>
+            <div class="controlpanel savings">
+                <img src="Assets/Money Box.png" alt="">
+                <h4>Savings</h4>
+            </div>
+            <div class="controlpanel records">
+                <img src="Assets/Database View.png" alt="">
+                <h4>Records</h4>
+            </div>
+            <div class="controlpanel history">
+                <img src="Assets/Time Machine.png" alt="">
+                <h4>History</h4>
+            </div>
+            <br><br><br><br>
+            <div class="controlpanel settings">
+                <img src="Assets/Settings.png" alt="">
+                <h4>Settings</h4>
+            </div>
+            <div class="controlpanel inquiry">
+                <img src="Assets/Inquiry.png" alt="">
+                <h4>Inquiry</h4>
+            </div><br><br><br><br>
+        </div>
+    </div>
+    <div class="center">
+        <div class="centertitle">
+            <div class="centertitle1">
+        <h1>Dashboard</h1>
+        <h3>Displaying all the contents</h3>
+    </div>
+</div>
+<br>
+<div class="cards">
+    <div class="card1 c1">
+        <img  class="image" src="Assets/Driving.png" alt="">
+        <h3 class="value">± 200 kg</h3>
+        <h3 class="name">Payload Sensor</h3>
+    </div>
+    <div class="card1 c2">
+        <img  class="image" src="Assets/Severity.png" alt="">
+        <h3 class="value" style="color: #62FF97;">± 200 kg</h3>
+        <h3 class="name">Acc. Sensor</h3>
+    </div>
+    <div class="card1 c3">
+        <img  class="image imagealt" src="Assets/Speedometer.png" alt="">
+        <h3 class="value" style="color: #FF6262;">± 200 kg</h3>
+        <h3 class="name">Velocity Sensor</h3>
+    </div>
+    <div class="card1 c4">
+        <img  class="image imagealt" src="Assets/Gyroscope.png" alt="">
+        <h3 class="value" style="color: #FFF962;">± 200 kg</h3>
+        <h3 class="name">Gyro Sensor</h3>
+    </div>
+</div>
+<div class="chartmap">
+    <div class="chart" style="height: 800px; width: 600px;">
+        <canvas id="myChart" ></canvas>
+    </div>
+<div id="map-canvas"></div>
+</div>
+</div>
+
+<div class="right">
+    <div class="togglealert">
+    <div class="toggleWrapper">
+        <input type="checkbox" class="dn" id="dn">
+        <label for="dn" class="toggle">
+            <span class="toggle__handler">
+                <span class="crater crater--1"></span>
+                
+            </span>
+            <span class="star star--1"></span>
+            <span class="star star--2"></span>
+            <span class="star star--3"></span>
+            <span class="star star--4"></span>
+            <span class="star star--5"></span>
+            <span class="star star--6"></span>
+        </label>
+    </div>
+<div class="alert"><img src="Assets/Doorbell.png" alt="" height="65%" width="40%"></div>
+</div>
+<h2 style="text-align: center;margin-top: 60px;">Engine Performance</h2>
+<div class="vehdata">
+    <img src="Assets/Engine.png" alt="" width="33px" height="27px">
+    <div class="datatext">
+        <h4 style="margin-bottom: 5px;">Engine RPM</h4>
+        <h5 style="margin: 0;">RPM</h5>
+    </div>
+    <h3 style="color: red;" class="datanum">-200</h3>
+</div>
+<div class="vehdata">
+    <img src="Assets/Fire.png" alt="" width="33px" height="27px" >
+    <div class="datatext"  style="margin-left: -48px;">
+        <h4 style="margin-bottom: 5px;">Fuel</h4>
+        <h5 style="margin: 0;">Km/L</h5>
+    </div>
+    <h3 style="color: red;" class="datanum">-200</h3>
+</div>
+<div class="vehdata">
+    <img src="Assets/CO2.png" alt="" width="33px" height="27px">
+    <div class="datatext"style="margin-left: -38px;" >
+        <h4 style="margin-bottom: 5px;">Emissions</h4>
+        <h5 style="margin: 0;">Co2 - g/km</h5>
+    </div>
+    <h3 style="color: red;" class="datanum">-200</h3>
+</div>
+<div class="vehdata">
+    <img src="Assets/Fahrenheit Symbol.png" alt="" width="33px" height="27px" >
+    <div class="datatext" style="margin-left: -24px;">
+        <h4 style="margin-bottom: 5px;">Temperature</h4>
+        <h5 style="margin: 0;">Fahrenheit</h5>
+    </div>
+    <h3 style="color: red;" class="datanum">-200</h3>
+</div>
+<div class="dlist">
+<h3 style="margin-left: 10px;margin-top: 30px;">Drivers List</h3>
+<img src="Assets/Tune.png" alt="" class="sort" height="33px" width="33px">
+</div>
+<div class="drivercontainer">  
+<div class="driverdata animate " >
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+<div class="driverdata animate">
+    <div class="truck">
+        <img src="Assets/3d truck.png" alt="">
+    </div>
+    <div class="driver">
+        <h4 style="margin-bottom: 5px;">Driver1</h4>
+        <h5 style="margin: 0;">TN-74 AB-1208
+        </h5>
+    </div>
+</div>
+</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPage</title>
+    <script type="module" src="./script.js"></script>
+</head>
+<body>
+    <h3><a href="" id="logout" style="display: none;">Logout</a></h3>
+    <h1>Register Page</h1>
+    <form action="#" method="post">
+        <label for="username">Username :</label></label><input type="text" name="username" id="reg_email"><br>
+        <label for="password">Password :</label><input type="password" name="password" id="reg_password"><br>
+        <input type="button" name="" id="register" value="Submit">
+    </form>
+    <h1>Login Page</h1>
+    <form action="#" method="post">
+        <label for="username">Username :</label></label><input type="text" name="username" id="login_email"><br>
+        <label for="password">Password :</label><input type="password" name="password" id="login_password"><br>
+        <input type="button" name="" id="login" value="Submit">
+    </form>
+    <button id="glogin">Login with google</button>
+</body>
+<!-- <script type="module">
+     // Import the functions you need from the SDKs you need
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+ import {GoogleAuthProvider,signInWithPopup,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+
+ // Your web app's Firebase configuration
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ const firebaseConfig = {
+   apiKey: "AIzaSyCxXazobQtO9DY106u5_J07tq9lnZq4hjg",
+   authDomain: "web-auth-b6801.firebaseapp.com",
+   projectId: "web-auth-b6801",
+   storageBucket: "web-auth-b6801.appspot.com",
+   messagingSenderId: "24475082151",
+   appId: "1:24475082151:web:2fa02b8f91a56d86de6a82",
+   measurementId: "G-TWSN2HDR5C"
+ };
+
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+ const analytics = getAnalytics(app);
+ const auth = getAuth(app);
+ const provider = new GoogleAuthProvider();
+ auth.languageCode = 'en';
+ const user = auth.currentUser;
+
+ function UpdateUserProfile(user){
+     const username = user.displayName;
+     const useremail = user.email;
+     const userprofile = user.photoURL;
+
+     document.getElementById("username").textContent = username;
+     document.getElementById("useremail").textContent = useremail;
+     document.getElementById("userprofile").src = userprofile;
+ }
+ onAuthStateChanged(auth,(user) =>{
+
+    if(user)
+    {
+        UpdateUserProfile(user);
+        const uid = user.uid;
+        return uid;
+    }
+    else{
+        alert("No accesss to this email");
+        window.location = "https://www.youtube.com";
+    }
+ })
+
+   //----- New Registration code start	  
+   document.getElementById("register").addEventListener("click", function() {
+       var email =  document.getElementById("reg_email").value;
+       var password = document.getElementById("reg_password").value;
+       //For new registration
+       createUserWithEmailAndPassword(auth, email, password)
+       .then((userCredential) => {
+         // Signed in 
+         const user = userCredential.user;
+         console.log(user);
+         alert("Registration successfully!!");
+         // ...
+       })
+       .catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         // ..
+         console.log(errorMessage);
+         alert(error);
+       });		  		  
+   });
+   //----- End
+
+   //----- Login code start	  
+   document.getElementById("login").addEventListener("click", function() {
+       var email =  document.getElementById("login_email").value;
+       var password = document.getElementById("login_password").value;
+
+       signInWithEmailAndPassword(auth, email, password)
+       .then((userCredential) => {
+         // Signed in 
+         const user = userCredential.user;
+         console.log(user);
+         alert(user.email+" Login successfully!!!");
+         document.getElementById('logout').style.display = 'block';
+         // ...
+       })
+       .catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         console.log(errorMessage);
+         alert(errorMessage);
+       });		  		  
+   });
+   //----- End
+
+   //----- Logout code start	  
+   document.getElementById("logout").addEventListener("click", function() {
+       signOut(auth).then(() => {
+           // Sign-out successful.
+           console.log('Sign-out successful.');
+           alert('Sign-out successful.');
+           document.getElementById('logout').style.display = 'none';
+         }).catch((error) => {
+           // An error happened.
+           console.log('An error happened.');
+         });		  		  
+   });
+
+ const Google = document.getElementById("glogin");
+ Google.addEventListener("click",function(){
+     signInWithPopup(auth, provider)
+.then((result) => {
+ const credential = GoogleAuthProvider.credentialFromResult(result);
+ const user = result.user;
+ console.log(user);
+ window.location.href = "./logged.html";
+}).catch((error) => {
+ const errorCode = error.code;
+ const errorMessage = error.message; 
+ })}
+ )
+   //----- End
+</script> -->
+</html>

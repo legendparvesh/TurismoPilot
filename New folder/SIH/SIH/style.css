@@ -1,0 +1,489 @@
+
+body {
+    font-family: 'Poppins';
+    margin: 0;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    background-color: black;
+    height: 100vh;
+}
+
+/********************* LEFT PART STARTS *********************/
+
+.logo{ 
+    width: 90%;
+    height: 10%;
+    margin-left: 10%;
+    margin-top:10%;
+}
+.left{
+    background-color: #17181C;
+    height: 100%;
+    margin-left:-8px;
+    flex: 15;
+}
+.center{
+    background-color:#0c0c0f;
+    /* background-color:white; */
+    flex:70;
+}
+.right{
+    background-color: #17181C;
+    height: 100%;
+    flex:20;
+    font-family: 'Poppins';
+}
+.dashboard{
+    color: white;
+}
+.dashboard h4{
+    margin-left: 8px;
+}
+.controlpanel img{
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 40%;
+    width: 40%; 
+}
+.transfer,.analytics,.savings,.history,.records {
+    margin-right: 25px;
+}
+.analytics h4{
+    margin-left: 10px;
+}
+
+.history h4{
+    margin-left:-5px ;
+}
+.settings , .inquiry{
+    margin-right: 20px;
+}
+.settings h4 {
+    margin-left: -5px;
+}
+.inquiry img{
+margin-right: -10px;
+}
+.inquiry h4{
+    margin-left: -5px;
+}
+.controlpanel h4{
+    margin-right:40px;
+}
+.controlpanel{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+/********************* CENTER PART STARTS *********************/
+
+.centertitle{
+    display: grid;
+    grid-template-columns: auto auto;
+    font-family: 'Inter';
+}
+.centertitle1{
+    margin-left: 40px;
+    margin-top: 4%;
+}
+.centertitle1 > h3{
+    font-weight: 100;
+    font-size: 17px;
+    margin-top: -20px;
+
+}
+/********************* CARD PART STARTS *********************/
+
+.card1{
+  background-color:#0c0c10;
+  border-radius:20px 20px 25px 25px;
+  width: 200px;
+  margin-left:20px;
+  margin-top: 15px;
+  height: 240px;
+  position: relative;
+  box-sizing: border-box;
+}
+.cards{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin-top: -15px;
+    margin-left:17px;
+    margin-right: 27px;
+    padding-top: 5px;
+    /* border: 2px solid white;
+    border-radius: 15px; */
+    
+}
+
+
+
+   .card1:hover {
+    transform: scale(1.05); 
+    transition: transform 0.3s ease; 
+    z-index: 1;
+   }
+  .c1{
+    border:2px solid #0FF;
+    box-shadow: rgba(62, 62, 178, 0.25) 0px 30px 50px -12px , rgba(0, 0, 0, 0.3) 0px 18px 26px -18px ;
+
+   }
+   .c2{
+    border:2px solid #62FF97;
+    box-shadow: rgba(7, 157, 34, 0.25) 0px 30px 50px -12px , rgba(0, 0, 0, 0.3) 0px 18px 26px -18px ;
+
+   }
+   .c3{
+    border:2px solid#FF6262 ;
+    box-shadow: rgba(201, 13, 32, 0.25) 0px 30px 50px -12px , rgba(0, 0, 0, 0.3) 0px 18px 26px -18px ;
+
+   }
+   .c4{
+    border:2px solid #FFF962;
+    box-shadow: rgba(230, 212, 13, 0.25) 0px 30px 50px -12px , rgba(0, 0, 0, 0.3) 0px 18px 26px -18px ;
+
+   }
+
+.card1 > .image{
+    margin: 10px 0 0px 40px;
+
+}
+.card1 .imagealt{
+    margin-left: 4px;
+    margin-left: 40px;
+} 
+
+.card1 .name{
+    margin-top: 20px;
+   text-align: center;
+}
+.card1 > h3{
+    margin: 10px 0 20px 0px;
+    font-weight: lighter;
+    font-size: 22px;
+}
+.card1 .value{
+    margin: -5px 0 -10px -25px;
+    font-size: 22px;
+    text-align: center
+    ;
+    color:#0FF;
+}
+.cards .menu
+{
+    float: right;
+    margin-top: 20px;
+    margin-right:10px ;
+}
+
+
+/********************* MAP PART STARTS *********************/
+
+
+#map-canvas{
+    width:450px;
+    height:350px;
+    margin-left: -40px;
+    margin-top: 30px;
+    overflow: visible;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.chart{
+    margin: 50px 0 0px 20px;
+}
+.chartmap{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 50px;
+}
+
+/********************* TOGGLE CSS *********************/
+.toggleWrapper {
+    margin:32px 0px 0 80px;
+    overflow: hidden;
+    transform: translate3d(-50%, -50%, 0);
+    color: white;
+  }
+  
+  .toggleWrapper input {
+    position: absolute;
+    left: -99em;
+  }
+  
+  .toggle {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width:60px;
+    height: 30px;
+    background-color: #83d8ff;
+    border-radius: 84px;
+    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  .toggle:before {
+    position: absolute;
+    left: -50px;
+    top: 15px;
+    font-size: 18px;
+  }
+  
+  .toggle:after {
+    position: absolute;
+    right: -48px;
+    top: 15px;
+    font-size: 18px;
+    color: #749ed7;
+  }
+  
+  .toggle__handler {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    left: 3px;
+    top: 2.8px;
+    width: 25px;
+    height: 25px;
+    background-color: #ffcf96;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: rotate(-45deg);
+  }
+  
+  .toggle__handler .crater {
+    position: absolute;
+    background-color: #e8cda5;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    border-radius: 100%;
+  }
+  
+  .toggle__handler .crater--1 {
+    top: 18px;
+    left: 10px;
+    width: 4px;
+    height: 4px;
+  }
+  
+  .toggle__handler .crater--2 {
+    top: 28px;
+    left: 22px;
+    width: 6px;
+    height: 6px;
+  }
+  
+  .toggle__handler .crater--3 {
+    top: 10px;
+    left: 25px;
+    width: 8px;
+    height: 8px;
+  }
+  
+  .star {
+    position: absolute;
+    background-color: #fff;
+    transition: all 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: 50%;
+  }
+  
+  .star--1 {
+    top: 10px;
+    left: 25px;
+    z-index: 0;
+    width: 30px;
+    height: 3px;
+  }
+  
+  .star--2 {
+    top: 18px;
+    left: 28px;
+    z-index: 1;
+    width: 30px;
+    height: 3px;
+  }
+  
+  .star--3 {
+    top: 27px;
+    left: 20px;
+    z-index: 0;
+    width: 30px;
+    height: 3px;
+  }
+  
+  .star--4, .star--5, .star--6 {
+    opacity: 0;
+    transition: all 300ms 0 cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  .star--4 {
+    top: 16px;
+    left: 11px;
+    z-index: 0;
+    width: 2px;
+    height: 2px;
+    transform: translate3d(3px, 0, 0);
+  }
+  
+  .star--5 {
+    top: 32px;
+    left: 17px;
+    z-index: 0;
+    width: 3px;
+    height: 3px;
+    transform: translate3d(3px, 0, 0);
+  }
+  
+  .star--6 {
+    top: 36px;
+    left: 10px;
+    z-index: 0;
+    width: 2px;
+    height: 2px;
+    transform: translate3d(3px, 0, 0);
+  }
+  
+  input:checked + .toggle {
+    background-color: #749dd6;
+  }
+  
+  input:checked + .toggle:before {
+    color: #749ed7;
+  }
+  
+  input:checked + .toggle:after {
+    color: #fff;
+  }
+  
+  input:checked + .toggle .toggle__handler {
+    background-color: #ffe5b5;
+    transform: translate3d(30px, 0, 0) rotate(0);
+  }
+  
+  input:checked + .toggle .toggle__handler .crater {
+    opacity: 1;
+  }
+  
+  input:checked + .toggle .star--1 {
+    width: 2px;
+    height: 2px;
+  }
+  
+  input:checked + .toggle .star--2 {
+    width: 4px;
+    height: 4px;
+    transform: translate3d(-5px, 0, 0);
+  }
+  
+  input:checked + .toggle .star--3 {
+    width: 2px;
+    height: 2px;
+    transform: translate3d(-7px, 0, 0);
+  }
+  
+  input:checked + .toggle .star--4, input:checked + .toggle .star--5, input:checked + .toggle .star--6 {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  input:checked + .toggle .star--4 {
+    transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  input:checked + .toggle .star--5 {
+    transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  input:checked + .toggle .star--6 {
+    transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+
+.togglealert{
+    display: grid;
+    display: none;
+    grid-template-columns: auto auto;
+}
+.alert{
+    margin : 15px 0 0px -65px;
+
+}
+
+
+/********************* RIGHT SIDE CSS *********************/
+.vehdata{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.datatext{
+    display: grid;
+    grid-template-rows: auto auto;
+    margin: -5px 0 0 -30px ;
+}
+.datatext h5{
+    margin-top: -25px;
+}
+
+.datanum {
+text-align: right;
+margin-right: 30px;
+}
+.vehdata > img{
+    margin-top: 18px;
+    border: 1px solid #adafbf;
+    padding: 8px 6px;
+    border-radius: 15px;
+    border: 1px solid #adafbf;
+    margin-left:5px;
+}
+.sort{
+    margin-top: 20px;
+    margin-left: 120px;
+    border: 1px solid #adafbf;
+    border-radius: 15px;
+    padding : 4px;   
+}
+.dlist{
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.driverdata{
+    display: grid;
+    grid-template-columns: auto auto;
+    display: flex;
+}
+.driver{
+    margin: -25px 0 0px 7px;
+}
+.truck{
+    margin-left: 10px;
+}
+.drivercontainer{
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 450px; /* Set a maximum height for the container */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    
+}
+
+/* Define animation keyframes for animate1 */
+@keyframes animate1 {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.driverdata.animate {
+    padding-top: 8px;
+    box-shadow: 0 1px 0px rgba(252, 250, 250, 0.1); /* Add a shadow */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition for smooth animation */
+}
+
+
